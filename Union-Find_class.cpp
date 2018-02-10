@@ -3,7 +3,9 @@
 using namespace std;
 
 class Union_Find{
-    vector<int> par,rank;
+private:
+    vector<int> par, rank;
+public:
     Union_Find(int Max_Node){
         par = vector<int>(Max_Node);
         rank = vector<int>(Max_Node);
