@@ -3,10 +3,10 @@
 using namespace std;
 
 class Union_Find{
-    vector<int> par,node;
+    vector<int> par,rank;
     Union_Find(int Max_Node){
         par = vector<int>(Max_Node);
-        node = vectpr<int>(Max_Node);
+        rank = vector<int>(Max_Node);
     }
 
     int find(int x){
