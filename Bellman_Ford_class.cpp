@@ -4,7 +4,7 @@ using namespace std;
 
 struct Edge{
     long long to, cost;
-    Edge(long t, long c){
+    Edge(long long t, long long c){
         to = t;
         cost = c;
     }
@@ -17,8 +17,8 @@ class Bellman_Ford{
         vector<vector<Edge> > adj;
     public:
         Bellman_Ford(int v){
-            dist = vector<long long>(v + 1);
-            adj = vector<vector<Edge> >(v + 1);
+            dist.resize(v + 1);
+            adj.resize(v + 1);
         }
 
         void add_edge(int from, int to, int cost){
