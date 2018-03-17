@@ -5,17 +5,24 @@ using namespace std;
 class Union_Find{
 private:
     vector<int> par, rank;
-public:
-    Union_Find(int Max_Node){
-        par = vector<int>(Max_Node);
-        rank = vector<int>(Max_Node);
-    }
 
     int find(int x){
         if(par[x] == x){
             return x;
         }else{
             return par[x] = find(par[x]);
+        }
+    }
+public:
+    Union_Find(int Max_Node){
+        par.resize(Max_Node);
+        rank.resize(Max_Node);
+    }
+
+    void init(int n) {
+        for(int i = 0; i < n; i++){
+            par[i] = i;
+            rank[i] = 0;
         }
     }
 
