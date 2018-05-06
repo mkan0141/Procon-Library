@@ -11,7 +11,7 @@ int gcd(int a,int b){
     return 0;
   while( a != b ){
     if ( a > b ) a = a - b;
-    else n = b - a;
+    else b = b - a;
   }
   return a;
 }
@@ -43,21 +43,19 @@ bool is_prime(int n){
     return true;
 }
 
-
-//n以下の数で何個素数があるか
-int sieve(int n){
-    int prime[10000];
-    bool is_prime[100000];
-    int p=0;
-    for(int i=0;i<100000;i++)is_prime[i]=true;
-    is_prime[0]=is_prime[1]=false;
-    for(int i=2;i<100000;i++){
-        if(is_prime[i]){
-            prime[p++]=i;
-            for(int j=2*i;j<=n;j+=i)is_prime[j]=false;
-        }
+// n以下の素数を列挙
+vector<int> sieve(int n){
+  vector<int> ret;
+  bool is_prime[n+1];
+  memset(is_prime, true, sizeof(is_prime));
+  is_prime[0]=is_prime[1]=false;
+  for(int i=2;i<n+1;i++){
+    if(is_prime[i]){
+      ret.push_back(i);
+      for(int j=2*i;j<n+1;j+=i)is_prime[j]=false;
     }
-    return p;
+  }
+  return ret;
 }
 
 // nCr
