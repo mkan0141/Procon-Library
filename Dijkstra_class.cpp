@@ -60,6 +60,10 @@ public:
         return d[t];
     }
 
+    bool enable_move(int t){
+        return d[t] != _INF;
+    }
+    
     vector<int> get_path(int t){
         vector<int> path;
         for(; t != -1; t = prev[t])
