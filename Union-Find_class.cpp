@@ -17,10 +17,7 @@ public:
     Union_Find(int Max_Node){
         par.resize(Max_Node);
         rank.resize(Max_Node);
-    }
-
-    void init(int n) {
-        for(int i = 0; i < n; i++){
+        for(int i = 0; i < Max_Node; i++){
             par[i] = i;
             rank[i] = 0;
         }
