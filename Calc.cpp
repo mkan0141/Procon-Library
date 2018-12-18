@@ -1,9 +1,28 @@
 #include <iostream>
+#include <cmath>
 #include <vector>
 #define mod 1000000007
 #define rep(i,x) for(int i=0;i<(x);i++)
 using ll = long long;
 using namespace std;
+
+double two_distance(int x1, int y1, int x2, int y2){
+  return sqrt(pow(abs(x1 - x2), 2) + pow(abs(y1 - y2), 2));
+}
+
+// 約数の個数を列挙
+int euler_phi(ll n){
+  if(n == 0) return 0;
+  ll ret = n;
+  for(int i = 2; i*i <= n; i++){
+    if(n % i == 0){
+      ret -= ret/i;
+      while(n % i == 0) n /= i;
+    }
+  }
+  if(n > 1) ret -= ret/n;
+  return ret;
+}
 
 // gcd
 int gcd(int a,int b){
