@@ -44,14 +44,32 @@ int lcm(int a,int b){
 }
 
 //高速累乗計算  
-long long Pow(long long x,long long n){
-    long long res=1;
-    while(0<n){
-        if(n&1)res*=res*x%mod;
-        x=x*x%mod;
-        n>>=2;
+long long mod_pow(long long x, long long n){
+  long long ret = 1;
+  while(0 < n){
+    if((n % 2) == 0){
+      x = (x * x);
+      n >>= 1;
+    } else {
+      ret = (ret * x);
+      --n;
     }
-    return res;
+  }
+  return ret;
+}
+
+long long mod_pow(long long x, long long n, long long _mod){
+  long long ret = 1;
+  while(0 < n){
+    if((n % 2) == 0){
+      x = (x * x) % _mod;
+      n >>= 1;
+    } else {
+      ret = (ret * x) % _mod;
+      --n;
+    }
+  }
+  return ret;
 }
 
 //素数判定
